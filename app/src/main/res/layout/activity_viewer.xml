@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:keepScreenOn="true"
+
+    tools:context=".Viewer">
+
+    <!-- Toolbar -->
+    <include
+        android:id="@+id/toolbar_viewer"
+        layout="@layout/toolbar" />
+
+    <FrameLayout
+        android:id="@+id/client_camera_preview"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        >
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listView_recorders"
+            android:layout_gravity="center" />
+    </FrameLayout>
+</LinearLayout>

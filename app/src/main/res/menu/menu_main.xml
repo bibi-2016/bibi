@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    tools:context="net.chavchi.android.bibi.MainActivity">
+
+    <item
+        android:id="@+id/menu_action_settings"
+        android:title="@string/menu_action_settings" />
+
+    <item
+        android:id="@+id/menu_action_exit"
+        android:title="@string/menu_action_exit" />
+</menu>

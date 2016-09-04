@@ -1,0 +1,83 @@
+apply plugin: 'com.android.model.application'
+
+model {
+    android {
+        compileSdkVersion = 24
+        buildToolsVersion = "24.0.0"
+
+        defaultConfig {
+            applicationId = "net.chavchi.android.bibi"
+            //minSdkVersion.apiLevel = 7    //enclair_mr1            (2.1.x)
+            minSdkVersion.apiLevel = 8  //froyo                  (2.2.x)
+            //minSdkVersion.apiLevel = 9  //gingerbread            (2.3, 2.3.1, 2.3.2)
+            //minSdkVersion.apiLevel = 10 //gingerbread_mr1        (2.3.3, 2.3.4)
+            //minSdkVersion.apiLevel = 11 //honeycomp              (3.0.x)
+            //minSdkVersion.apiLevel = 12 //honeycomp_mr1          (3.1.x)
+            //minSdkVersion.apiLevel = 13 //honeycomp_mr2          (3.2)
+            //minSdkVersion.apiLevel = 14 //ice_cream_ sandwich    (4.0, 4.0.1, 4.0.2)
+            //minSdkVersion.apiLevel = 15 //ice_cream_sandwich_mr1 (4.0.3, 4.0.4)
+            //minSdkVersion.apiLevel = 16 //jelly_bean             (4.1, 4.1.1)
+            //minSdkVersion.apiLevel = 17 //jelly_bean_mr1         (4.2, 4.2.2)
+            //minSdkVersion.apiLevel = 18 //jelly_bean_mr2         (4.3)
+            //minSdkVersion.apiLevel = 19 //kitkat                 (4.4)
+            //minSdkVersion.apiLevel = 20 //kitkat_watch           (4.4W)
+            //minSdkVersion.apiLevel = 21 //lollipop               (5.0)
+            //minSdkVersion.apiLevel = 22 //lollipop_mr1           (5.1)
+            //minSdkVersion.apiLevel = 23 //m                      (6.0)
+
+            targetSdkVersion.apiLevel = 24
+
+            versionCode = 1
+            versionName = "1.0"
+        }
+
+        ndk {
+            moduleName = "hello-jni"
+            toolchain = 'clang'
+            CFlags.addAll(['-Wall'])
+        }
+
+        buildTypes {
+            release {
+                minifyEnabled = false
+                proguardFiles.add(file('proguard-rules.txt'))
+            }
+        }
+
+        productFlavors {
+            // for detailed abiFilter descriptions, refer to "Supported ABIs" @
+            // https://developer.android.com/ndk/guides/abis.html#sa
+            create("arm") {
+                ndk.abiFilters.add("armeabi")
+            }
+            create("arm7") {
+                ndk.abiFilters.add("armeabi-v7a")
+            }
+            create("arm8") {
+                ndk.abiFilters.add("arm64-v8a")
+            }
+            create("x86") {
+                ndk.abiFilters.add("x86")
+            }
+            create("x86-64") {
+                ndk.abiFilters.add("x86_64")
+            }
+            create("mips") {
+                ndk.abiFilters.add("mips")
+            }
+            create("mips-64") {
+                ndk.abiFilters.add("mips64")
+            }
+            // To include all cpu architectures, leaves abiFilters empty
+            create("all")
+        }
+    }
+}
+
+
+dependencies {
+//    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.2.0'
+    compile 'com.android.support:design:23.2.0'
+}

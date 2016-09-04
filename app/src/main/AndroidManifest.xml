@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.chavchi.android.bibi">
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <!--
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:name=".Bibi"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+
+        <!-- for headset button press -->
+        <receiver android:name=".BBroadcastReceiver">
+            <intent-filter android:priority="1000000" >
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".Main"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Settings"
+            android:label="@string/activity_title_settings"
+            android:parentActivityName=".Main"
+            android:screenOrientation="portrait">
+            <!-- only availabe on API16 (Android 4.1) -->
+
+
+            <!-- Parent activity meta-data to support Androdid 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main" />
+        </activity>
+        <activity
+            android:name=".Recorder"
+            android:label="@string/activity_title_recorder"
+            android:parentActivityName=".Main"
+            android:screenOrientation="portrait">
+            <!-- only availabe on API16 (Android 4.1) -->
+
+            <!-- Parent activity meta-data to support Androdid 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main" />
+        </activity>
+        <activity
+            android:name=".Viewer"
+            android:label="@string/activity_title_viewer"
+            android:parentActivityName=".Main"
+            android:screenOrientation="portrait">
+            <!-- only availabe on API16 (Android 4.1) -->
+
+
+            <!-- Parent activity meta-data to support Androdid 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Main" />
+        </activity>
+        <activity
+            android:name=".Monitor"
+            android:label="@string/activity_title_monitor"
+            android:parentActivityName=".Viewer"
+            android:screenOrientation="portrait">
+            <!-- only availabe on API16 (Android 4.1) -->
+
+
+            <!-- Parent activity meta-data to support Androdid 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Viewer" />
+
+        </activity>
+    </application>
+
+</manifest>

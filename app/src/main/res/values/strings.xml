@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">BiBi</string>
+    <string name="activity_title_settings">Settings</string>
+    <string name="activity_title_recorder">Recorder</string>
+    <string name="activity_title_viewer">Viewer</string>
+    <string name="activity_title_monitor">Monitor</string>
+    <string name="menu_action_settings">Settings</string>
+    <string name="menu_action_exit">Exit</string>
+</resources>
